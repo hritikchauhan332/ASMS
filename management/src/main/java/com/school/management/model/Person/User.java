@@ -1,17 +1,14 @@
 package com.school.management.model.Person;
 
 import com.school.management.model.Address;
+import com.school.management.model.Role;
 
 import javax.persistence.*;
 import java.util.Date;
 
 
 @Entity
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(
-        name = "user_role",
-        discriminatorType = DiscriminatorType.STRING
-)
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +27,7 @@ public class User {
     private int age;
     private Date createdAt;
     private Date updatedAt;
+    private String role;
 
     public long getId() {
         return id;
@@ -103,17 +101,33 @@ public class User {
         this.password = password;
     }
 
+    public Date getCreatedAt() { return createdAt; }
+
+    public void setCreatedAt(Date createdAt) { this.createdAt = createdAt; }
+
+    public Date getUpdatedAt() { return updatedAt; }
+
+    public void setUpdatedAt(Date updatedAt) { this.updatedAt = updatedAt; }
+
+    public String getRole() { return role; }
+
+    public void setRole(String role) { this.role = role; }
+
     @Override
     public String toString() {
-        return "Admin{" +
+        return "User{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
+                ", address=" + address +
                 ", countryCode=" + countryCode +
                 ", phoneNo=" + phoneNo +
                 ", password='" + password + '\'' +
+                ", age=" + age +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                ", role=" + role +
                 '}';
     }
 }

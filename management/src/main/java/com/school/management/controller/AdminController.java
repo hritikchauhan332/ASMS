@@ -4,7 +4,7 @@ import com.school.management.Utils.Constants;
 import com.school.management.Utils.Exceptions.EmailAlreadyExistsException;
 import com.school.management.Utils.Response.ResponseHandler;
 import com.school.management.model.Person.Admin;
-import com.school.management.service.UserService;
+import com.school.management.service.AdminService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 public class AdminController {
     @Autowired
-    UserService userService;
+    AdminService adminService;
 
     Logger logger = LoggerFactory.getLogger(AdminController.class);
 
@@ -26,7 +26,7 @@ public class AdminController {
     {
         try
         {
-            Admin registeredAdmin = this.userService.registerAdmin(admin);
+            Admin registeredAdmin = this.adminService.registerAdmin(admin);
             return ResponseHandler.generateResponse(HttpStatus.CREATED, Constants.AdminConstants.ADMIN_REGISTERED_SUCCESSFULLY, registeredAdmin);
         }
         catch (EmailAlreadyExistsException emailAlreadyExistsException)
