@@ -8,7 +8,7 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class AdminService {
     @Autowired
     UserRepo userRepo;
 
@@ -21,12 +21,10 @@ public class UserService {
         }
         catch (DataIntegrityViolationException violationException)
         {
-            violationException.printStackTrace();
             throw new EmailAlreadyExistsException();
         }
         catch (Exception ex)
         {
-            ex.printStackTrace();
             return null;
         }
     }

@@ -10,10 +10,6 @@ import java.util.List;
 @Entity
 @DiscriminatorValue(value = "student")
 public class Student extends User {
-
-    private String fatherName;
-    private String MotherName;
-
     @ManyToOne()
     private SessionYear sessionYear;
 
