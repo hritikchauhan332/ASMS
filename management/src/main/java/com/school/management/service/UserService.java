@@ -21,12 +21,10 @@ public class UserService {
         }
         catch (DataIntegrityViolationException violationException)
         {
-            violationException.printStackTrace();
             throw new EmailAlreadyExistsException();
         }
         catch (Exception ex)
         {
-            ex.printStackTrace();
             return null;
         }
     }
