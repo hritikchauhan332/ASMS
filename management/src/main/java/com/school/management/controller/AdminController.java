@@ -10,18 +10,20 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("/admin")
 public class AdminController {
     @Autowired
     AdminService adminService;
 
     Logger logger = LoggerFactory.getLogger(AdminController.class);
 
-    @PostMapping("/admin/register")
+    @PostMapping("/register")
     public ResponseEntity<Object> registerAdmin(@RequestBody Admin admin)
     {
         try

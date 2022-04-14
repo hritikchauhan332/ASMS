@@ -10,12 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
+@RequestMapping("/teacher")
 public class TeacherController {
 
     @Autowired
@@ -23,7 +23,7 @@ public class TeacherController {
 
     Logger logger = LoggerFactory.getLogger(TeacherController.class);
 
-    @PostMapping("/teacher/add")
+    @PostMapping("/add")
     public ResponseEntity<Object> addTeacher(@RequestBody Teacher teacher)
     {
         try
@@ -43,7 +43,7 @@ public class TeacherController {
         }
     }
 
-    @GetMapping("teacher/all")
+    @GetMapping("/all")
     public ResponseEntity<Object> getAllTeachers()
     {
         try
@@ -58,7 +58,7 @@ public class TeacherController {
         }
     }
 
-    @PutMapping("teacher/update/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Object> updateTeacher(@PathVariable (value = "id") long id, @RequestBody Teacher teacher)
     {
         try
@@ -78,7 +78,7 @@ public class TeacherController {
         }
     }
 
-    @DeleteMapping("teacher/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<Object> deleteTeacher(@PathVariable (value = "id") long id)
     {
         try
