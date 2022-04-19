@@ -6,6 +6,7 @@ import com.school.management.model.Person.Teacher;
 import com.school.management.model.Person.User;
 import com.school.management.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -18,7 +19,13 @@ public class TeacherService {
     @Autowired
     TeacherRepo teacherRepo;
 
-    public Teacher add(Teacher teacher) { return this.teacherRepo.save(teacher); }
+    @Autowired
+    BCryptPasswordEncoder passwordEncoder;
+
+    public Teacher add(Teacher teacher) {
+        teacher.setPassword(passwordEncoder.encode(teacher.getPassword()));
+        return this.teacherRepo.save(teacher);
+    }
 
     public List<Teacher> getAllTeacher()
     {
