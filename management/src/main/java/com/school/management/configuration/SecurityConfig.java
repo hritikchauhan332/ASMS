@@ -58,15 +58,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .csrf().disable()
 //                .cors().disable()
 //                .authorizeRequests().anyRequest().authenticated();
-
+        //authorizeRequests((request) -> request.antMatchers( HttpMethod.OPTIONS,"/auth/login").permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated()).
         http.sessionManagement().
                 sessionCreationPolicy(SessionCreationPolicy.STATELESS).
                 and().
                 exceptionHandling().
                 authenticationEntryPoint(authenticationEntryPoint).
                 and().
-                authorizeRequests((request) -> request.antMatchers( HttpMethod.OPTIONS,"/auth/login").permitAll().antMatchers(HttpMethod.OPTIONS, "/**").permitAll().anyRequest().authenticated()).
-                addFilterBefore(new JWTAuthenticationFilter(userService, jwtTokenHelper), UsernamePasswordAuthenticationFilter.class);
+                authorizeRequests().
+                antMatchers("/auth/login").permitAll().
+                antMatchers("/teacher/**").authenticated();
+
+        http.addFilterBefore(new JWTAuthenticationFilter(userService, jwtTokenHelper), UsernamePasswordAuthenticationFilter.class);
 
         http.csrf().disable().cors().and().headers().frameOptions().disable();
     }
