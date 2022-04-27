@@ -12,7 +12,8 @@ public class SessionYear {
 
     private int startingYear;
     private int endYear;
-    @OneToMany()
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "session_year_id")
     private List<SClass> classes;
 
     public int getStartingYear() {
