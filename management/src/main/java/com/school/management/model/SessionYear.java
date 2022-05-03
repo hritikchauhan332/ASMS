@@ -1,5 +1,7 @@
 package com.school.management.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -12,9 +14,14 @@ public class SessionYear {
 
     private int startingYear;
     private int endYear;
+    @JsonManagedReference
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "session_year_id")
     private List<SClass> classes;
+
+    public long getId() { return id; }
+
+    public void setId(long id) { this.id = id; }
 
     public int getStartingYear() {
         return startingYear;

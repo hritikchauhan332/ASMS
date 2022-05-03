@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.MessageFormat;
+import java.util.List;
 
 @Service
 public class SessionYearService {
@@ -21,5 +22,11 @@ public class SessionYearService {
             throw new ResourceAlreadyExistsException(MessageFormat.format(Constants.ResourceAlreadyExistExceptionConstants.RESOURCE_ALREADY_EXISTS_MESSAGE, "Session"));
 
         this.sessionYearRepo.save(sessionYear);
+    }
+
+    public List<SessionYear> getAllSessions()
+    {
+        List<SessionYear> sessionYearList = this.sessionYearRepo.findAll();
+        return sessionYearList;
     }
 }

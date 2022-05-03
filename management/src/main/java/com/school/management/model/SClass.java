@@ -1,5 +1,6 @@
 package com.school.management.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.school.management.model.Person.Student;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ public class SClass {
 
     private String className;
 
+    @JsonBackReference
     @ManyToOne()
     private SessionYear sessionYear;
 

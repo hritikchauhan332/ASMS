@@ -2,8 +2,8 @@ package com.school.management.controller;
 
 import com.school.management.Utils.Exceptions.ResourceAlreadyExistsException;
 import com.school.management.Utils.Response.ResponseHandler;
-import com.school.management.model.SessionYear;
-import com.school.management.service.SessionYearService;
+import com.school.management.model.SClass;
+import com.school.management.service.SClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,18 +12,18 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/session")
-public class SessionYearController {
+@RequestMapping("/class")
+public class SClassController {
 
     @Autowired
-    SessionYearService sessionYearService;
+    SClassService sClassService;
 
     @PostMapping("/add")
-    public ResponseEntity<Object> addSessionYear(@RequestBody SessionYear sessionYear)
+    ResponseEntity<Object> addSCLass(@RequestBody SClass sClass)
     {
         try {
-            this.sessionYearService.add(sessionYear);
-            return ResponseHandler.generateResponse(HttpStatus.OK, "Session added successfully", null);
+            this.sClassService.addSClass(sClass);
+            return ResponseHandler.generateResponse(HttpStatus.OK, "success", null);
         } catch (ResourceAlreadyExistsException ex) {
             return ResponseHandler.generateResponse(HttpStatus.CONFLICT, ex.getMessage(), null);
         } catch (Exception ex) {
@@ -31,12 +31,12 @@ public class SessionYearController {
         }
     }
 
-    @GetMapping("/all")
-    public ResponseEntity<Object> getAllSessionYear()
+    @GetMapping("/{sessionId}/all")
+    ResponseEntity<Object> getClassBySessionId(@PathVariable (value = "sessionId") long sessionId)
     {
         try {
-            List<SessionYear> sessionYearList = this.sessionYearService.getAllSessions();
-            return ResponseHandler.generateResponse(HttpStatus.OK, "success", sessionYearList);
+            List<SClass> classList = this.sClassService.getClassesBySessionId(sessionId);
+            return ResponseHandler.generateResponse(HttpStatus.OK, "success", classList);
         } catch (Exception ex) {
             return ResponseHandler.generateResponse(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), null);
         }
