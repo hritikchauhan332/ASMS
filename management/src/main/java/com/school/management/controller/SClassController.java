@@ -4,6 +4,7 @@ import com.school.management.Utils.Exceptions.ResourceAlreadyExistsException;
 import com.school.management.Utils.Response.ResponseHandler;
 import com.school.management.model.SClass;
 import com.school.management.service.SClassService;
+import com.school.management.service.interfaces.ISClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +17,7 @@ import java.util.List;
 public class SClassController {
 
     @Autowired
-    SClassService sClassService;
+    ISClassService sClassService;
 
     @PostMapping("/add")
     ResponseEntity<Object> addSCLass(@RequestBody SClass sClass)

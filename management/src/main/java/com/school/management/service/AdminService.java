@@ -3,20 +3,23 @@ package com.school.management.service;
 import com.school.management.Utils.Exceptions.EmailAlreadyExistsException;
 import com.school.management.dao.UserRepo;
 import com.school.management.model.Person.Admin;
+import com.school.management.service.interfaces.IAdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class AdminService {
+public class AdminService implements IAdminService {
     @Autowired
     UserRepo userRepo;
 
     @Autowired
     BCryptPasswordEncoder passwordEncoder;
 
-    public Admin registerAdmin(Admin admin)
+    public Admin register(Admin admin)
     {
         try
         {
@@ -33,4 +36,13 @@ public class AdminService {
             return null;
         }
     }
+
+    @Override
+    public List<Admin> getAll() { return null; }
+
+    @Override
+    public void update(long id, Admin Person) {}
+
+    @Override
+    public void delete(long id) {}
 }

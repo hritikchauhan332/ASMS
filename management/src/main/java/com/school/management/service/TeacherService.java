@@ -5,6 +5,7 @@ import com.school.management.dao.TeacherRepo;
 import com.school.management.model.Person.Teacher;
 import com.school.management.model.Person.User;
 import com.school.management.model.Role;
+import com.school.management.service.interfaces.ITeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TeacherService {
+public class TeacherService implements ITeacherService {
 
     @Autowired
     TeacherRepo teacherRepo;
@@ -22,12 +23,12 @@ public class TeacherService {
     @Autowired
     BCryptPasswordEncoder passwordEncoder;
 
-    public Teacher add(Teacher teacher) {
+    public Teacher register(Teacher teacher) {
         teacher.setPassword(passwordEncoder.encode(teacher.getPassword()));
         return this.teacherRepo.save(teacher);
     }
 
-    public List<Teacher> getAllTeacher()
+    public List<Teacher> getAll()
     {
         List<User> objectList = this.teacherRepo.findAllByRole(Role.TEACHER.toString());
         List<Teacher> teachers = new ArrayList<>();

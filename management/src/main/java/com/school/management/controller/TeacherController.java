@@ -3,7 +3,7 @@ package com.school.management.controller;
 import com.school.management.Utils.Exceptions.ResourceNotFoundException;
 import com.school.management.Utils.Response.ResponseHandler;
 import com.school.management.model.Person.Teacher;
-import com.school.management.service.TeacherService;
+import com.school.management.service.interfaces.ITeacherService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import java.util.List;
 public class TeacherController {
 
     @Autowired
-    TeacherService teacherService;
+    ITeacherService teacherService;
 
     Logger logger = LoggerFactory.getLogger(TeacherController.class);
 
@@ -28,7 +28,7 @@ public class TeacherController {
     {
         try
         {
-            Teacher addedTeacher = this.teacherService.add(teacher);
+            Teacher addedTeacher = this.teacherService.register(teacher);
             return ResponseHandler.generateResponse(HttpStatus.CREATED, "Teacher added successfully", addedTeacher);
         }
         catch (DataIntegrityViolationException violationException)
@@ -48,7 +48,7 @@ public class TeacherController {
     {
         try
         {
-            List<Teacher> teachers = this.teacherService.getAllTeacher();
+            List<Teacher> teachers = this.teacherService.getAll();
             return ResponseHandler.generateResponse(HttpStatus.OK, "success", teachers);
         }
         catch (Exception ex)

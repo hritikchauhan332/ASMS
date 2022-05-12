@@ -4,6 +4,7 @@ import com.school.management.Utils.Constants;
 import com.school.management.Utils.Exceptions.ResourceAlreadyExistsException;
 import com.school.management.dao.SClassRepo;
 import com.school.management.model.SClass;
+import com.school.management.service.interfaces.ISClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import java.text.MessageFormat;
 import java.util.List;
 
 @Service
-public class SClassService {
+public class SClassService implements ISClassService {
 
     @Autowired
     SClassRepo sClassRepo;
