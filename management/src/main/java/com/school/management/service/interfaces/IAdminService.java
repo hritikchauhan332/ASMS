@@ -1,5 +1,6 @@
 package com.school.management.service.interfaces;
 
-public interface IAdminService {
+import com.school.management.model.Person.Admin;
 
+public interface IAdminService extends IPersonService<Admin>{
 }

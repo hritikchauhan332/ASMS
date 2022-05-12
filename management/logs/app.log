@@ -1,0 +1,941 @@
+2022-04-16 17:44:00,925 INFO com.school.management.ManagementApplication [restartedMain] Starting ManagementApplication using Java 11.0.14.1 on avnishkumar with PID 2984 (D:\ASMS\ASMS\management\target\classes started by avnishkumar in D:\ASMS\ASMS\management)
+2022-04-16 17:44:00,933 INFO com.school.management.ManagementApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-16 17:44:01,006 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-16 17:44:01,007 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-16 17:44:02,358 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-16 17:44:02,441 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 65 ms. Found 3 JPA repository interfaces.
+2022-04-16 17:44:11,403 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2022-04-16 17:44:11,418 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2022-04-16 17:44:11,420 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-16 17:44:11,550 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-04-16 17:44:11,551 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 10542 ms
+2022-04-16 17:44:11,838 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-16 17:44:11,910 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-04-16 17:44:12,124 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-16 17:44:12,265 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-04-16 17:44:13,646 ERROR com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Exception during pool initialization.
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:829)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:242)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.school.management.ManagementApplication.main(ManagementApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-04-16 17:44:13,649 WARN org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator [restartedMain] HHH000342: Could not obtain connection to query metadata
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:829)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:242)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.school.management.ManagementApplication.main(ManagementApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-04-16 17:44:13,674 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-16 17:44:14,414 INFO org.hibernate.tuple.PojoInstantiator [restartedMain] HHH000182: No default (no-argument) constructor for class: com.school.management.model.Subject (class must be instantiated by Interceptor)
+2022-04-16 17:44:14,550 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-04-16 17:44:15,586 ERROR com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Exception during pool initialization.
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:829)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:242)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:559)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:68)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:123)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:196)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.school.management.ManagementApplication.main(ManagementApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-04-16 17:44:15,588 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [restartedMain] SQL Error: 1045, SQLState: 28000
+2022-04-16 17:44:15,589 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [restartedMain] Access denied for user 'root'@'localhost' (using password: YES)
+2022-04-16 17:44:15,595 ERROR org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+2022-04-16 17:44:15,596 WARN org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+2022-04-16 17:44:15,601 INFO org.apache.catalina.core.StandardService [restartedMain] Stopping service [Tomcat]
+2022-04-16 17:44:15,615 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-04-16 17:44:15,639 ERROR org.springframework.boot.SpringApplication [restartedMain] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.school.management.ManagementApplication.main(ManagementApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 21 common frames omitted
+Caused by: org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:71)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:559)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:68)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:123)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:196)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 25 common frames omitted
+Caused by: java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:829)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:242)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44)
+	... 41 common frames omitted
+2022-04-16 17:48:58,544 INFO com.school.management.ManagementApplication [restartedMain] Starting ManagementApplication using Java 11.0.14.1 on avnishkumar with PID 17812 (D:\ASMS\ASMS\management\target\classes started by avnishkumar in D:\ASMS\ASMS\management)
+2022-04-16 17:48:58,549 INFO com.school.management.ManagementApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-16 17:48:58,611 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-16 17:48:58,613 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-16 17:48:59,477 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-16 17:48:59,549 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 58 ms. Found 3 JPA repository interfaces.
+2022-04-16 17:49:00,377 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2022-04-16 17:49:00,392 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2022-04-16 17:49:00,394 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-16 17:49:00,500 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-04-16 17:49:00,501 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 1887 ms
+2022-04-16 17:49:00,693 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-16 17:49:00,759 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-04-16 17:49:00,911 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-16 17:49:01,001 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-04-16 17:49:02,293 ERROR com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Exception during pool initialization.
+java.sql.SQLException: Access denied for user 'avnish'@'localhost' (using password: NO)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:829)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:242)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.school.management.ManagementApplication.main(ManagementApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-04-16 17:49:02,294 WARN org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator [restartedMain] HHH000342: Could not obtain connection to query metadata
+java.sql.SQLException: Access denied for user 'avnish'@'localhost' (using password: NO)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:829)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:242)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:68)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:175)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:173)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:127)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:1460)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1494)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.school.management.ManagementApplication.main(ManagementApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-04-16 17:49:02,310 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-16 17:49:03,009 INFO org.hibernate.tuple.PojoInstantiator [restartedMain] HHH000182: No default (no-argument) constructor for class: com.school.management.model.Subject (class must be instantiated by Interceptor)
+2022-04-16 17:49:03,160 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-04-16 17:49:04,188 ERROR com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Exception during pool initialization.
+java.sql.SQLException: Access denied for user 'avnish'@'localhost' (using password: NO)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:829)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:242)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:559)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:68)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:123)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:196)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.school.management.ManagementApplication.main(ManagementApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+2022-04-16 17:49:04,191 WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper [restartedMain] SQL Error: 1045, SQLState: 28000
+2022-04-16 17:49:04,193 ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper [restartedMain] Access denied for user 'avnish'@'localhost' (using password: NO)
+2022-04-16 17:49:04,199 ERROR org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+2022-04-16 17:49:04,200 WARN org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+2022-04-16 17:49:04,205 INFO org.apache.catalina.core.StandardService [restartedMain] Stopping service [Tomcat]
+2022-04-16 17:49:04,217 INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener [restartedMain] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-04-16 17:49:04,239 ERROR org.springframework.boot.SpringApplication [restartedMain] Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1804)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1154)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:908)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.school.management.ManagementApplication.main(ManagementApplication.java:10)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	... 21 common frames omitted
+Caused by: org.hibernate.exception.GenericJDBCException: Unable to open JDBC Connection for DDL execution
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:71)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcConnection(ImprovedExtractionContextImpl.java:63)
+	at org.hibernate.tool.schema.internal.exec.ImprovedExtractionContextImpl.getJdbcDatabaseMetaData(ImprovedExtractionContextImpl.java:70)
+	at org.hibernate.tool.schema.extract.internal.InformationExtractorJdbcDatabaseMetaDataImpl.processTableResultSet(InformationExtractorJdbcDatabaseMetaDataImpl.java:64)
+	at org.hibernate.tool.schema.extract.internal.AbstractInformationExtractorImpl.getTables(AbstractInformationExtractorImpl.java:559)
+	at org.hibernate.tool.schema.extract.internal.DatabaseInformationImpl.getTablesInformation(DatabaseInformationImpl.java:122)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:68)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:220)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:123)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:196)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	... 25 common frames omitted
+Caused by: java.sql.SQLException: Access denied for user 'avnish'@'localhost' (using password: NO)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:829)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:449)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:242)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:198)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:364)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:476)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.getConnection(DatasourceConnectionProviderImpl.java:122)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:181)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.DdlTransactionIsolatorNonJtaImpl.getIsolatedConnection(DdlTransactionIsolatorNonJtaImpl.java:44)
+	... 41 common frames omitted
+2022-04-16 17:50:19,705 INFO com.school.management.ManagementApplication [restartedMain] Starting ManagementApplication using Java 11.0.14.1 on avnishkumar with PID 10380 (D:\ASMS\ASMS\management\target\classes started by avnishkumar in D:\ASMS\ASMS\management)
+2022-04-16 17:50:19,710 INFO com.school.management.ManagementApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2022-04-16 17:50:19,772 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-04-16 17:50:19,773 INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-04-16 17:50:20,658 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-16 17:50:20,729 INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 57 ms. Found 3 JPA repository interfaces.
+2022-04-16 17:50:21,649 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8080 (http)
+2022-04-16 17:50:21,663 INFO org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2022-04-16 17:50:21,665 INFO org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-16 17:50:21,837 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2022-04-16 17:50:21,841 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 2066 ms
+2022-04-16 17:50:22,206 INFO org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-16 17:50:22,340 INFO org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-04-16 17:50:22,780 INFO org.hibernate.annotations.common.Version [restartedMain] HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-16 17:50:23,046 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2022-04-16 17:50:23,776 INFO com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2022-04-16 17:50:23,818 INFO org.hibernate.dialect.Dialect [restartedMain] HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-04-16 17:50:25,337 INFO org.hibernate.tuple.PojoInstantiator [restartedMain] HHH000182: No default (no-argument) constructor for class: com.school.management.model.Subject (class must be instantiated by Interceptor)
+2022-04-16 17:50:28,228 INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-16 17:50:28,239 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-16 17:50:29,492 WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-16 17:50:29,844 INFO springfox.documentation.spring.web.PropertySourcedRequestMappingHandlerMapping [restartedMain] Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2022-04-16 17:50:29,992 INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2022-04-16 17:50:30,737 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-16 17:50:30,743 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Context refreshed
+2022-04-16 17:50:30,819 INFO springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper [restartedMain] Found 1 custom documentation plugin(s)
+2022-04-16 17:50:30,923 INFO springfox.documentation.spring.web.scanners.ApiListingReferenceScanner [restartedMain] Scanning for api listing references
+2022-04-16 17:50:31,391 INFO com.school.management.ManagementApplication [restartedMain] Started ManagementApplication in 12.23 seconds (JVM running for 12.825)
+2022-04-16 17:52:09,103 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-04-16 17:52:09,105 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Initializing Servlet 'dispatcherServlet'
+2022-04-16 17:52:09,107 INFO org.springframework.web.servlet.DispatcherServlet [http-nio-8080-exec-1] Completed initialization in 1 ms
+2022-04-16 17:52:09,590 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-2] No mapping for GET /
+2022-04-16 17:52:09,629 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-5] No mapping for GET /csrf
+2022-04-16 18:11:43,545 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9m19s438ms175µs100ns).
+2022-04-17 00:23:27,000 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5h52m13s294ms716µs800ns).
+2022-04-17 00:41:59,596 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-4] No mapping for GET /struts2-showcase/struts/utils.js
+2022-04-17 00:41:59,596 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-7] No mapping for GET /
+2022-04-17 00:41:59,600 INFO org.apache.tomcat.util.http.parser.Cookie [http-nio-8080-exec-8] A cookie header was received [${jndi:dns://MDEDiscovery60a8b56781Cookie-8080}] that contained an invalid cookie. That cookie will be ignored.
+ Note: further occurrences of this error will be logged at DEBUG level.
+2022-04-17 00:41:59,601 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-6] No mapping for GET /
+2022-04-17 00:41:59,602 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-8] No mapping for GET /
+2022-04-17 00:41:59,609 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-5] No mapping for GET /
+2022-04-17 00:42:00,408 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-1] No mapping for GET /oXygenLicenseServlet/index.jsp
+2022-04-17 00:42:00,442 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-7] No mapping for GET /dashboard/
+2022-04-17 00:42:00,860 INFO org.apache.coyote.http11.Http11Processor [http-nio-8080-exec-6] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/js/?${jndi:dns://MDEDiscovery60a8b56781SeenInTheWildGet-8080} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:494)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-04-17 00:42:02,608 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-4] No mapping for GET /:undefined
+2022-04-17 00:42:02,616 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-10] No mapping for GET /struts2-showcase/struts/tooltip.gif
+2022-04-17 00:42:02,616 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-9] No mapping for GET /
+2022-04-17 00:42:02,625 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-8] No mapping for GET /struts2-showcase/struts/domtt.css
+2022-04-17 00:42:02,625 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-2] No mapping for GET /:undefined
+2022-04-17 00:42:02,634 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-3] No mapping for GET /struts2-showcase/struts/domTT.js
+2022-04-17 00:42:02,639 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-3] No mapping for GET /
+2022-04-17 00:42:02,642 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-1] No mapping for GET /struts2-showcase/struts/inputtransfersselect.js
+2022-04-17 00:42:02,647 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-6] No mapping for GET /:undefined
+2022-04-17 00:42:02,647 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-4] No mapping for GET /struts2-showcase/struts/optiontransferselect.js
+2022-04-17 00:42:02,661 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-10] No mapping for GET /struts2-showcase
+2022-04-17 00:42:02,661 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-9] No mapping for GET /
+2022-04-17 00:42:02,664 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-8] No mapping for GET /:undefined
+2022-04-17 00:42:02,665 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-2] No mapping for GET /index.action/struts/utils.js
+2022-04-17 00:42:02,684 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-7] No mapping for GET /
+2022-04-17 00:42:02,687 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-3] No mapping for POST /struts2-showcase/token/transfer4.action
+2022-04-17 00:42:02,711 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-1] No mapping for GET /:undefined
+2022-04-17 00:42:02,714 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-4] No mapping for GET /:undefined
+2022-04-17 00:42:02,714 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-10] No mapping for GET /:undefined
+2022-04-17 00:42:02,714 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-9] No mapping for GET /:undefined
+2022-04-17 00:42:02,714 INFO org.apache.coyote.http11.Http11Processor [http-nio-8080-exec-8] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/struts2-showcase/${jndi:dns://MDEDiscovery60a8b56781ApacheStruts2-8080} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:502)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-04-17 00:42:02,725 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-5] No mapping for POST /struts2-showcase/token/transfer4.action
+2022-04-17 00:42:02,733 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-3] No mapping for GET /
+2022-04-17 00:42:02,734 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-1] No mapping for GET /
+2022-04-17 00:42:02,734 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-6] No mapping for GET /
+2022-04-17 00:42:02,737 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-4] No mapping for GET /
+2022-04-17 00:42:02,749 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-2] No mapping for GET /:undefined
+2022-04-17 00:42:02,760 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-10] No mapping for GET /
+2022-04-17 00:42:02,768 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-8] No mapping for GET /:undefined
+2022-04-17 00:42:02,778 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-1] No mapping for GET /
+2022-04-17 00:42:02,776 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-7] No mapping for GET /:undefined
+2022-04-17 00:42:02,770 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-5] No mapping for GET /:undefined
+2022-04-17 00:42:02,780 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-3] No mapping for GET /:undefined
+2022-04-17 00:42:02,781 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-6] No mapping for GET /
+2022-04-17 00:42:02,793 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-7] No mapping for GET /
+2022-04-17 00:42:02,792 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-10] No mapping for GET /:undefined
+2022-04-17 00:42:02,797 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-4] No mapping for GET /:undefined
+2022-04-17 00:42:02,797 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-2] No mapping for GET /
+2022-04-17 00:42:02,805 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-1] No mapping for GET /:undefined
+2022-04-17 00:42:02,814 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-9] No mapping for GET /
+2022-04-17 00:42:02,817 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-3] No mapping for GET /
+2022-04-17 00:42:02,821 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-10] No mapping for GET /
+2022-04-17 00:42:02,820 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-6] No mapping for GET /:undefined
+2022-04-17 00:42:02,821 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-7] No mapping for GET /:undefined
+2022-04-17 00:42:02,825 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-4] No mapping for GET /
+2022-04-17 00:42:02,835 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-1] No mapping for GET /:undefined
+2022-04-17 00:42:02,842 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-9] No mapping for GET /
+2022-04-17 00:42:02,871 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-3] No mapping for GET /:undefined
+2022-04-17 00:42:02,871 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-10] No mapping for GET /
+2022-04-17 00:42:02,886 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-6] No mapping for GET /:undefined
+2022-04-17 00:42:02,883 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-7] No mapping for GET /:undefined
+2022-04-17 00:42:02,895 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-8] No mapping for GET /:undefined
+2022-04-17 00:42:02,898 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-4] No mapping for GET /
+2022-04-17 00:42:02,891 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-2] No mapping for GET /
+2022-04-17 00:42:02,915 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-9] No mapping for GET /
+2022-04-17 00:42:02,913 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-1] No mapping for GET /:undefined
+2022-04-17 00:42:02,913 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-5] No mapping for GET /:undefined
+2022-04-17 00:42:02,917 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-3] No mapping for GET /
+2022-04-17 00:42:02,924 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-10] No mapping for GET /
+2022-04-17 00:42:03,259 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-22] No mapping for GET /:undefined
+2022-04-17 00:42:03,237 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-19] No mapping for GET /
+2022-04-17 00:42:03,235 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-20] No mapping for GET /
+2022-04-17 00:42:03,229 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-21] No mapping for GET /:undefined
+2022-04-17 00:42:03,208 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-18] No mapping for GET /
+2022-04-17 00:42:03,204 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-13] No mapping for GET /
+2022-04-17 00:42:03,201 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-16] No mapping for GET /:undefined
+2022-04-17 00:42:03,201 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-15] No mapping for GET /:undefined
+2022-04-17 00:42:03,196 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-17] No mapping for GET /
+2022-04-17 00:42:03,187 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-11] No mapping for GET /
+2022-04-17 00:42:03,196 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-14] No mapping for GET /:undefined
+2022-04-17 00:42:03,053 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-2] No mapping for GET /:undefined
+2022-04-17 00:42:03,182 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-12] No mapping for GET /:undefined
+2022-04-17 00:42:03,053 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-5] No mapping for GET /
+2022-04-17 00:42:03,023 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-3] No mapping for GET /:undefined
+2022-04-17 00:42:03,012 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-1] No mapping for GET /
+2022-04-17 00:42:02,993 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-8] No mapping for GET /:undefined
+2022-04-17 00:42:02,969 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-9] No mapping for GET /
+2022-04-17 00:42:02,964 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-4] No mapping for GET /
+2022-04-17 00:42:02,932 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-7] No mapping for GET /:undefined
+2022-04-17 00:42:03,881 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-5] No mapping for GET /:undefined
+2022-04-17 00:42:02,931 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-6] No mapping for GET /:undefined
+2022-04-17 00:42:03,881 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-9] No mapping for GET /
+2022-04-17 00:42:03,836 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-2] No mapping for GET /
+2022-04-17 00:42:03,835 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-1] No mapping for GET /
+2022-04-17 00:42:03,836 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-3] No mapping for GET /:undefined
+2022-04-17 00:42:03,835 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-4] No mapping for GET /:undefined
+2022-04-17 00:42:03,834 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-7] No mapping for GET /:undefined
+2022-04-17 00:42:03,954 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-75] No mapping for POST /
+2022-04-17 00:42:03,831 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-12] No mapping for GET /
+2022-04-17 00:42:03,830 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-72] No mapping for GET /
+2022-04-17 00:42:03,830 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-71] No mapping for GET /
+2022-04-17 00:42:03,830 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-70] No mapping for GET /:undefined
+2022-04-17 00:42:03,829 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-8] No mapping for GET /:undefined
+2022-04-17 00:42:03,829 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-73] No mapping for GET /login
+2022-04-17 00:42:03,726 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-69] No mapping for GET /portal/info.jsp
+2022-04-17 00:42:03,829 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-74] No mapping for GET /
+2022-04-17 00:42:03,721 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-64] No mapping for POST /broker/xml
+2022-04-17 00:42:03,721 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-66] No mapping for POST /broker/xml
+2022-04-17 00:42:03,792 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-11] No mapping for GET /:undefined
+2022-04-17 00:42:03,721 INFO org.apache.coyote.http11.Http11Processor [http-nio-8080-exec-63] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/index.html?${jndi:dns://MDEDiscovery60a8b56781SeenInTheWildGet-8080} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:494)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-04-17 00:42:03,792 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-14] No mapping for GET /
+2022-04-17 00:42:03,721 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-68] No mapping for GET /:undefined
+2022-04-17 00:42:03,721 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-65] No mapping for GET /:undefined
+2022-04-17 00:42:03,721 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-67] No mapping for GET /
+2022-04-17 00:42:03,721 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-62] No mapping for GET /webtools/control/main
+2022-04-17 00:42:03,720 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-61] No mapping for GET /:undefined
+2022-04-17 00:42:03,688 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-59] No mapping for GET /
+2022-04-17 00:42:03,665 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-58] No mapping for GET /
+2022-04-17 00:42:03,716 INFO org.apache.coyote.http11.Http11Processor [http-nio-8080-exec-60] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/api/?${jndi:dns://MDEDiscovery60a8b56781SeenInTheWildGet-8080} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:494)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-04-17 00:42:03,634 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-57] No mapping for GET /:undefined
+2022-04-17 00:42:03,591 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-55] No mapping for GET /:undefined
+2022-04-17 00:42:03,591 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-56] No mapping for GET /
+2022-04-17 00:42:03,586 INFO org.apache.coyote.http11.Http11Processor [http-nio-8080-exec-17] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/JSPWiki/wiki/${jndi:dns://MDEDiscovery60a8b56781ApacheJspWiki-8080} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:502)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-04-17 00:42:03,591 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-53] No mapping for GET /:undefined
+2022-04-17 00:42:03,580 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-16] No mapping for GET /
+2022-04-17 00:42:03,569 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-52] No mapping for GET /
+2022-04-17 00:42:03,568 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-13] No mapping for GET /:undefined
+2022-04-17 00:42:03,570 INFO org.apache.coyote.http11.Http11Processor [http-nio-8080-exec-15] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/api/v2/${jndi:dns://MDEDiscovery60a8b56781SeenInTheWildGet-8080} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:502)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-04-17 00:42:03,564 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-54] No mapping for GET /
+2022-04-17 00:42:03,563 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-49] No mapping for GET /
+2022-04-17 00:42:03,541 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-51] No mapping for GET /:undefined
+2022-04-17 00:42:03,509 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-48] No mapping for GET /
+2022-04-17 00:42:03,510 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-50] No mapping for GET /:undefined
+2022-04-17 00:42:03,463 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-46] No mapping for GET /:undefined
+2022-04-17 00:42:03,463 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-47] No mapping for GET /:undefined
+2022-04-17 00:42:03,463 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-45] No mapping for GET /
+2022-04-17 00:42:03,456 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-21] No mapping for GET /
+2022-04-17 00:42:03,456 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-44] No mapping for GET /
+2022-04-17 00:42:03,454 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-18] No mapping for GET /:undefined
+2022-04-17 00:42:03,441 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-43] No mapping for GET /
+2022-04-17 00:42:03,437 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-40] No mapping for GET /:undefined
+2022-04-17 00:42:03,440 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-42] No mapping for GET /:undefined
+2022-04-17 00:42:03,437 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-41] No mapping for GET /:undefined
+2022-04-17 00:42:03,436 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-39] No mapping for GET /
+2022-04-17 00:42:03,432 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-38] No mapping for GET /
+2022-04-17 00:42:03,413 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-36] No mapping for GET /
+2022-04-17 00:42:03,431 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-37] No mapping for GET /:undefined
+2022-04-17 00:42:03,413 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-33] No mapping for GET /
+2022-04-17 00:42:03,411 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-35] No mapping for GET /:undefined
+2022-04-17 00:42:03,400 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-34] No mapping for GET /:undefined
+2022-04-17 00:42:03,400 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-32] No mapping for GET /
+2022-04-17 00:42:03,389 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-31] No mapping for GET /:undefined
+2022-04-17 00:42:03,359 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-30] No mapping for GET /:undefined
+2022-04-17 00:42:03,315 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-25] No mapping for GET /:undefined
+2022-04-17 00:42:03,328 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-20] No mapping for GET /
+2022-04-17 00:42:03,305 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-26] No mapping for GET /:undefined
+2022-04-17 00:42:03,328 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-19] No mapping for GET /:undefined
+2022-04-17 00:42:03,318 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-29] No mapping for GET /
+2022-04-17 00:42:03,316 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-28] No mapping for GET /
+2022-04-17 00:42:03,305 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-27] No mapping for GET /:undefined
+2022-04-17 00:42:03,297 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-24] No mapping for GET /
+2022-04-17 00:42:03,297 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-23] No mapping for GET /
+2022-04-17 00:42:03,295 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-22] No mapping for GET /
+2022-04-17 00:42:04,309 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-38] No mapping for GET /
+2022-04-17 00:42:03,288 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-10] No mapping for GET /:undefined
+2022-04-17 00:42:04,272 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-63] No mapping for GET /:undefined
+2022-04-17 00:42:04,245 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-68] No mapping for GET /:undefined
+2022-04-17 00:42:04,210 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-66] No mapping for GET /:undefined
+2022-04-17 00:42:04,198 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-11] No mapping for GET /
+2022-04-17 00:42:04,196 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-8] No mapping for GET /:undefined
+2022-04-17 00:42:04,121 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-64] No mapping for GET /
+2022-04-17 00:42:04,113 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-73] No mapping for GET /
+2022-04-17 00:42:04,111 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-74] No mapping for GET /:undefined
+2022-04-17 00:42:04,109 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-70] No mapping for GET /:undefined
+2022-04-17 00:42:04,109 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-59] No mapping for GET /
+2022-04-17 00:42:04,074 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-4] No mapping for GET /:undefined
+2022-04-17 00:42:04,044 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-1] No mapping for GET /:undefined
+2022-04-17 00:42:04,004 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-2] No mapping for POST /login
+2022-04-17 00:42:04,074 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-72] No mapping for GET /
+2022-04-17 00:42:04,001 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-7] No mapping for GET /
+2022-04-17 00:42:04,066 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-3] No mapping for GET /
+2022-04-17 00:42:04,064 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-75] No mapping for GET /:undefined
+2022-04-17 00:42:04,046 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-9] No mapping for GET /:undefined
+2022-04-17 00:42:04,045 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-71] No mapping for GET /
+2022-04-17 00:42:04,039 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-76] No mapping for GET /:undefined
+2022-04-17 00:42:04,039 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-12] No mapping for GET /
+2022-04-17 00:42:03,984 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-5] No mapping for GET /:undefined
+2022-04-17 00:42:03,982 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-6] No mapping for GET /
+2022-04-17 00:42:03,991 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-77] No mapping for POST /:undefined
+2022-04-17 00:42:04,471 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-14] No mapping for GET /
+2022-04-17 00:42:04,504 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-61] No mapping for GET /:undefined
+2022-04-17 00:42:04,504 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-62] No mapping for GET /
+2022-04-17 00:42:04,532 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-69] No mapping for GET /
+2022-04-17 00:42:04,580 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-60] No mapping for GET /:undefined
+2022-04-17 00:42:04,587 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-58] No mapping for GET /:undefined
+2022-04-17 00:42:04,603 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-57] No mapping for GET /
+2022-04-17 00:42:04,604 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-17] No mapping for GET /:undefined
+2022-04-17 00:42:04,614 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-55] No mapping for GET /cgi-bin/
+2022-04-17 00:42:04,621 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-53] No mapping for GET /
+2022-04-17 00:42:04,626 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-16] No mapping for GET /
+2022-04-17 00:42:04,636 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-15] No mapping for GET /:undefined
+2022-04-17 00:42:04,678 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-13] No mapping for GET /
+2022-04-17 00:42:04,682 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-49] No mapping for GET /
+2022-04-17 00:42:04,678 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-52] No mapping for GET /:undefined
+2022-04-17 00:42:04,693 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-54] No mapping for GET /
+2022-04-17 00:42:04,693 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-51] No mapping for GET /:undefined
+2022-04-17 00:42:04,696 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-48] No mapping for GET /:undefined
+2022-04-17 00:42:04,709 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-50] No mapping for GET /
+2022-04-17 00:42:04,718 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-44] No mapping for GET /
+2022-04-17 00:42:04,718 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-45] No mapping for GET /:undefined
+2022-04-17 00:42:04,724 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-21] No mapping for GET /:undefined
+2022-04-17 00:42:04,729 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-47] No mapping for GET /:undefined
+2022-04-17 00:42:04,729 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-46] No mapping for GET /
+2022-04-17 00:42:04,745 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-46] No mapping for GET /:undefined
+2022-04-17 00:42:04,737 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-43] No mapping for GET /
+2022-04-17 00:42:04,746 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-18] No mapping for GET /:undefined
+2022-04-17 00:42:04,753 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-40] No mapping for GET /
+2022-04-17 00:42:04,763 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-39] No mapping for GET /:undefined
+2022-04-17 00:42:04,776 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-36] No mapping for GET /
+2022-04-17 00:42:04,817 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-37] No mapping for GET /:undefined
+2022-04-17 00:42:04,828 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-65] No mapping for GET /
+2022-04-17 00:42:04,839 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-42] No mapping for GET /:undefined
+2022-04-17 00:42:04,844 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-33] No mapping for GET /
+2022-04-17 00:42:04,855 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-35] No mapping for GET /:undefined
+2022-04-17 00:42:04,867 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-31] No mapping for GET /
+2022-04-17 00:42:04,873 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-25] No mapping for GET /cgi-bin/
+2022-04-17 00:42:05,042 INFO org.apache.coyote.http11.Http11Processor [http-nio-8080-exec-20] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/?x=${jndi:dns://MDEDiscovery60a8b56781xParam-8080} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:494)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-04-17 00:42:05,121 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-19] No mapping for GET /
+2022-04-17 00:42:05,105 WARN org.springframework.web.servlet.PageNotFound [http-nio-8080-exec-30] No mapping for POST /
+2022-04-17 00:42:05,070 INFO org.apache.coyote.http11.Http11Processor [http-nio-8080-exec-28] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/?param=${jndi:dns://MDEDiscovery60a8b56781ParamUriParam-8080} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:494)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-04-17 00:42:05,087 INFO org.apache.coyote.http11.Http11Processor [http-nio-8080-exec-26] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/?v=${jndi:dns://MDEDiscovery60a8b56781vGetParam-8080} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:494)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-04-17 00:42:05,062 INFO org.apache.coyote.http11.Http11Processor [http-nio-8080-exec-29] Error parsing HTTP request header
+ Note: further occurrences of HTTP request parsing errors will be logged at DEBUG level.
+java.lang.IllegalArgumentException: Invalid character found in the request target [/?v=${jndi:dns://MDEDiscovery60a8b56781vPostParam-8080} ]. The valid characters are defined in RFC 7230 and RFC 3986
+	at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:494)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:271)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1743)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2022-04-17 11:19:26,381 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=9h44m28s175ms519µs800ns).
+2022-04-17 19:04:58,237 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5h33m59s72ms44µs800ns).
+2022-04-17 19:36:15,968 WARN com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m47s250ms705µs300ns).
+2022-04-17 20:33:41,375 INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-17 20:33:41,405 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2022-04-17 20:33:41,419 INFO com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
