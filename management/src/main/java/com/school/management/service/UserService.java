@@ -1,8 +1,8 @@
 package com.school.management.service;
 
 import com.school.management.dao.UserRepo;
-import com.school.management.model.Person.User;
-import com.school.management.model.Person.UserLogin;
+import com.school.management.model.person.User;
+import com.school.management.model.person.UserLogin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

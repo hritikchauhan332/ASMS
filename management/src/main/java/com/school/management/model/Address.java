@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     private String houseNo;
     private String street;
@@ -20,7 +20,7 @@ public class Address {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

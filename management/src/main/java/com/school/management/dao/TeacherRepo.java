@@ -1,6 +1,6 @@
 package com.school.management.dao;
 
-import com.school.management.model.Person.User;
+import com.school.management.model.person.User;
 
 import java.util.List;
 

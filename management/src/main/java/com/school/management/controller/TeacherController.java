@@ -1,8 +1,8 @@
 package com.school.management.controller;
 
-import com.school.management.Utils.Exceptions.ResourceNotFoundException;
-import com.school.management.Utils.Response.ResponseHandler;
-import com.school.management.model.Person.Teacher;
+import com.school.management.utils.exceptions.ResourceNotFoundException;
+import com.school.management.utils.response.ResponseHandler;
+import com.school.management.model.person.Teacher;
 import com.school.management.service.interfaces.ITeacherService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -59,7 +59,7 @@ public class TeacherController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Object> updateTeacher(@PathVariable (value = "id") long id, @RequestBody Teacher teacher)
+    public ResponseEntity<Object> updateTeacher(@PathVariable (value = "id") int id, @RequestBody Teacher teacher)
     {
         try
         {
@@ -79,7 +79,7 @@ public class TeacherController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Object> deleteTeacher(@PathVariable (value = "id") long id)
+    public ResponseEntity<Object> deleteTeacher(@PathVariable (value = "id") int id)
     {
         try
         {

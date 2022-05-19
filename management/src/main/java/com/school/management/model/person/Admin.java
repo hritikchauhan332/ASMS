@@ -1,4 +1,4 @@
-package com.school.management.model.Person;
+package com.school.management.model.person;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;

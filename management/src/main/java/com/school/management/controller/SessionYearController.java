@@ -1,9 +1,8 @@
 package com.school.management.controller;
 
-import com.school.management.Utils.Exceptions.ResourceAlreadyExistsException;
-import com.school.management.Utils.Response.ResponseHandler;
+import com.school.management.utils.exceptions.ResourceAlreadyExistsException;
+import com.school.management.utils.response.ResponseHandler;
 import com.school.management.model.SessionYear;
-import com.school.management.service.SessionYearService;
 import com.school.management.service.interfaces.ISessionYearService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

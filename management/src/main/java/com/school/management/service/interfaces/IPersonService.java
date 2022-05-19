@@ -7,7 +7,7 @@ public interface IPersonService<T> {
 
     public List<T> getAll();
 
-    public void update(long id, T Person);
+    public void update(int id, T person);
 
-    public void delete(long id);
+    public void delete(int id);
 }

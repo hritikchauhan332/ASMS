@@ -1,7 +1,7 @@
 package com.school.management.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.school.management.model.Person.Student;
+import com.school.management.model.person.Student;
 
 import javax.persistence.*;
 import java.util.List;
@@ -11,7 +11,9 @@ public class SClass {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
+
+    public void setId(int id) { this.id = id; }
 
     private String className;
 
