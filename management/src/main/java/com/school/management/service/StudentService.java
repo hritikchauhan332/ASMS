@@ -1,5 +1,6 @@
 package com.school.management.service;
 
+import com.school.management.utils.DateTime;
 import com.school.management.utils.exceptions.ResourceNotFoundException;
 import com.school.management.dao.StudentRepo;
 import com.school.management.model.person.Student;
@@ -25,6 +26,7 @@ public class StudentService implements IStudentService {
     @Override
     public Student register(Student student) {
         student.setPassword(passwordEncoder.encode(student.getPassword()));
+        student.setCreatedAt(DateTime.getCurrentDateTime());
         return this.studentRepo.save(student);
     }
 
@@ -40,6 +42,8 @@ public class StudentService implements IStudentService {
         if(savedUser.isEmpty())
             throw new ResourceNotFoundException("Unable to find Student with specified Id");
 
+        student.setCreatedAt(savedUser.get().getCreatedAt());
+        student.setUpdatedAt(DateTime.getCurrentDateTime());
         student.setId(savedUser.get().getId());
         this.studentRepo.save(student);
     }
