@@ -1,9 +1,11 @@
-package com.school.management.model.Person;
+package com.school.management.model.person;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Set;
 
 public class UserLogin implements UserDetails {
 
@@ -11,10 +13,11 @@ public class UserLogin implements UserDetails {
     private String password;
     private boolean isEnabled;
     private String role;
+    Set<SimpleGrantedAuthority> grantedAuthorities;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return grantedAuthorities;
     }
 
     @Override
@@ -62,4 +65,8 @@ public class UserLogin implements UserDetails {
     public void setRole(String role) { this.role = role; }
 
     public String getRole() { return role; }
+
+    public String getUserEmail() { return userEmail; }
+
+    public void setGrantedAuthorities(Set<SimpleGrantedAuthority> grantedAuthorities) { this.grantedAuthorities = grantedAuthorities; }
 }

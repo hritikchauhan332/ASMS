@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class Subject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
     @Column(unique = true)
     private String subjectCode;
     private String subjectName;
@@ -20,7 +20,7 @@ public class Subject {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

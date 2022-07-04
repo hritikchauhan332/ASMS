@@ -8,5 +8,5 @@ import java.util.List;
 public interface SClassRepo extends JpaRepository<SClass, Integer> {
     public SClass findByClassNameAndSessionYearId(String className, long sessionYearId);
 
-    public List<SClass> findBySessionYearId(long sessionId);
+    public List<SClass> findBySessionYearId(int sessionId);
 }

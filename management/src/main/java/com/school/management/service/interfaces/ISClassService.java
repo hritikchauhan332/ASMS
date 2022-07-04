@@ -7,5 +7,5 @@ import java.util.List;
 public interface ISClassService {
     public void addSClass(SClass sClass);
 
-    public List<SClass> getClassesBySessionId(long id);
+    public List<SClass> getClassesBySessionId(int id);
 }

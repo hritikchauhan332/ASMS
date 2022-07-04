@@ -1,9 +1,9 @@
 package com.school.management.controller;
 
-import com.school.management.Utils.Constants;
-import com.school.management.Utils.Exceptions.EmailAlreadyExistsException;
-import com.school.management.Utils.Response.ResponseHandler;
-import com.school.management.model.Person.Admin;
+import com.school.management.utils.Constants;
+import com.school.management.utils.exceptions.EmailAlreadyExistsException;
+import com.school.management.utils.response.ResponseHandler;
+import com.school.management.model.person.Admin;
 import com.school.management.service.interfaces.IAdminService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,22 +29,18 @@ public class AdminController {
         try
         {
             Admin registeredAdmin = this.adminService.register(admin);
-            return ResponseHandler.generateResponse(HttpStatus.CREATED, Constants.AdminConstants.ADMIN_REGISTERED_SUCCESSFULLY, registeredAdmin);
+            logger.info(Constants.AdminControllerConstants.ADMIN_REGISTERED_SUCCESSFULLY);
+            return ResponseHandler.generateResponse(HttpStatus.CREATED, Constants.ResponseMessageConstants.SUCCESS, registeredAdmin);
         }
         catch (EmailAlreadyExistsException emailAlreadyExistsException)
         {
-            return ResponseHandler.generateResponse(HttpStatus.MULTI_STATUS, "Email Already Exists", null);
+            logger.error(Constants.ResponseMessageConstants.EMAIL_ALREADY_EXISTS, emailAlreadyExistsException.getMessage());
+            return ResponseHandler.generateResponse(HttpStatus.MULTI_STATUS, Constants.ResponseMessageConstants.EMAIL_ALREADY_EXISTS, null);
         }
         catch (Exception ex)
         {
-            logger.error(ex.getMessage());
-            return ResponseHandler.generateResponse(HttpStatus.MULTI_STATUS, "Email Already Exists", null);
+            logger.error(Constants.ResponseMessageConstants.EMAIL_ALREADY_EXISTS, ex.getMessage());
+            return ResponseHandler.generateResponse(HttpStatus.MULTI_STATUS, Constants.ResponseMessageConstants.EMAIL_ALREADY_EXISTS, null);
         }
     }
-
-//    @PostMapping("/admin/login")
-//    public Optional<Admin> loginAdmin(@RequestBody Admin admin)
-//    {
-//        //return this.adminService.loginAdmin(admin)
-//    }
 }

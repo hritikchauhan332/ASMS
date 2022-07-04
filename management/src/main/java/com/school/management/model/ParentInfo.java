@@ -6,7 +6,7 @@ import javax.persistence.*;
 public class ParentInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
     private String motherName;
     private String fatherName;
 

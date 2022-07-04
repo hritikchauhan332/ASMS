@@ -1,4 +1,4 @@
-package com.school.management.Utils.Response;
+package com.school.management.utils.response;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +23,14 @@ public class ResponseHandler {
         response.put("message", message);
         response.put("data", data);
         response.put("authToken", jwtToken);
+        return new ResponseEntity<>(response, status);
+    }
+
+    public static ResponseEntity<Object> generateResponse(HttpStatus status, String message)
+    {
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", status.value());
+        response.put("message", message);
         return new ResponseEntity<>(response, status);
     }
 }

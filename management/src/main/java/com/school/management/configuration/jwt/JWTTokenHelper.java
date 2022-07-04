@@ -1,37 +1,36 @@
-package com.school.management.configuration;
+package com.school.management.configuration.jwt;
 
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetails;
+import com.school.management.model.person.UserLogin;
+import io.jsonwebtoken.*;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+import static com.school.management.utils.Constants.JwtTokenHelperContants.*;
 
 @Component
 public class JWTTokenHelper {
 
-    private String appName = "ASMS";
-
-    private String secretKey = "This is my secret key";
-
-    private int expiresIn = 3600;
-
     private SignatureAlgorithm SIGNATURE_ALGORITHM = SignatureAlgorithm.HS256;
-
 
     private Claims getAllClaimsFromToken(String token) {
         Claims claims;
         try {
             claims = Jwts.parser()
-                    .setSigningKey(secretKey)
+                    .setSigningKey(SECRET_KEY)
                     .parseClaimsJws(token)
                     .getBody();
-        } catch (Exception e) {
+        } catch (JwtException ex) {
+            throw ex;
+        } catch (Exception ex) {
             claims = null;
         }
         return claims;
@@ -43,34 +42,32 @@ public class JWTTokenHelper {
         try {
             final Claims claims = this.getAllClaimsFromToken(token);
             username = claims.getSubject();
+        } catch (JwtException ex) {
+            throw ex;
         } catch (Exception e) {
             username = null;
         }
         return username;
     }
 
-    public String generateToken(String username) throws InvalidKeySpecException, NoSuchAlgorithmException {
+    public String generateToken(UserLogin userLogin) throws InvalidKeySpecException, NoSuchAlgorithmException {
 
         return Jwts.builder()
-                .setIssuer(appName)
-                .setSubject(username)
+                .setIssuer(APP_NAME)
+                .setSubject(userLogin.getUserEmail())
+                .claim(AUTHORITIES, userLogin.getAuthorities())
                 .setIssuedAt(new Date())
                 .setExpiration(generateExpirationDate())
-                .signWith(SIGNATURE_ALGORITHM, secretKey)
+                .signWith(SIGNATURE_ALGORITHM, SECRET_KEY)
                 .compact();
     }
 
     private Date generateExpirationDate() {
-        return new Date(new Date().getTime() + expiresIn * 1000);
+        return new Date(new Date().getTime() + EXPIRES_IN * 1000);
     }
 
-    public Boolean validateToken(String token, UserDetails userDetails) {
-        final String username = getUsernameFromToken(token);
-        return (
-                username != null &&
-                        username.equals(userDetails.getUsername()) &&
-                        !isTokenExpired(token)
-        );
+    public Boolean validateToken(String token) {
+        return (!isTokenExpired(token));
     }
 
     public boolean isTokenExpired(String token) {
@@ -110,6 +107,17 @@ public class JWTTokenHelper {
         }
 
         return null;
+    }
+
+    public Set<SimpleGrantedAuthority> getGrantedAuthorities(String token) {
+        Claims claims = getAllClaimsFromToken(token);
+        List<Map<String, String>> authorities = (List<Map<String, String>>) claims.get("authorities");
+
+        Set<SimpleGrantedAuthority> grantedAuthorities = authorities.stream()
+                .map(m -> new SimpleGrantedAuthority(m.get("authority")))
+                .collect(Collectors.toSet());
+
+        return grantedAuthorities;
     }
 
     public String getAuthHeaderFromHeader(HttpServletRequest request) {

@@ -1,4 +1,4 @@
-package com.school.management.model.Person;
+package com.school.management.model.person;
 
 import com.school.management.model.SClass;
 import com.school.management.model.SessionYear;
