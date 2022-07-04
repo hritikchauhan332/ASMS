@@ -1,7 +1,6 @@
-package com.school.management.model.Person;
+package com.school.management.model.person;
 
 import com.school.management.model.Address;
-import com.school.management.model.Role;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,7 +11,7 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     private String firstName;
     private String lastName;
@@ -29,11 +28,11 @@ public class User {
     private Date updatedAt;
     private String role;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

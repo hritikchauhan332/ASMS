@@ -1,4 +1,4 @@
-package com.school.management.Utils.Exceptions;
+package com.school.management.utils.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException{
     public ResourceNotFoundException(String message) {

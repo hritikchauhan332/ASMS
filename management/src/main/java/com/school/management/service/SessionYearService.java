@@ -1,7 +1,7 @@
 package com.school.management.service;
 
-import com.school.management.Utils.Constants;
-import com.school.management.Utils.Exceptions.ResourceAlreadyExistsException;
+import com.school.management.utils.Constants;
+import com.school.management.utils.exceptions.ResourceAlreadyExistsException;
 import com.school.management.dao.SessionYearRepo;
 import com.school.management.model.SessionYear;
 import com.school.management.service.interfaces.ISessionYearService;
@@ -25,9 +25,5 @@ public class SessionYearService implements ISessionYearService {
         this.sessionYearRepo.save(sessionYear);
     }
 
-    public List<SessionYear> getAllSessions()
-    {
-        List<SessionYear> sessionYearList = this.sessionYearRepo.findAll();
-        return sessionYearList;
-    }
+    public List<SessionYear> getAllSessions() { return this.sessionYearRepo.findAll(); }
 }

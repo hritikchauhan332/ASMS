@@ -1,7 +1,7 @@
 package com.school.management.service;
 
-import com.school.management.Utils.Constants;
-import com.school.management.Utils.Exceptions.ResourceAlreadyExistsException;
+import com.school.management.utils.Constants;
+import com.school.management.utils.exceptions.ResourceAlreadyExistsException;
 import com.school.management.dao.SClassRepo;
 import com.school.management.model.SClass;
 import com.school.management.service.interfaces.ISClassService;
@@ -26,5 +26,5 @@ public class SClassService implements ISClassService {
         this.sClassRepo.save(sClass);
     }
 
-    public List<SClass> getClassesBySessionId(long sessionId) { return this.sClassRepo.findBySessionYearId(sessionId); }
+    public List<SClass> getClassesBySessionId(int sessionId) { return this.sClassRepo.findBySessionYearId(sessionId); }
 }

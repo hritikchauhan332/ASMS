@@ -1,10 +1,9 @@
 package com.school.management.controller;
 
-import com.school.management.utils.Constants;
 import com.school.management.utils.exceptions.EmailAlreadyExistsException;
 import com.school.management.utils.response.ResponseHandler;
-import com.school.management.model.person.Admin;
-import com.school.management.service.interfaces.IAdminService;
+import com.school.management.model.person.Student;
+import com.school.management.service.interfaces.IStudentService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,20 +15,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/student")
+public class StudentController {
+
     @Autowired
-    IAdminService adminService;
+    IStudentService studentService;
 
-    Logger logger = LoggerFactory.getLogger(AdminController.class);
+    Logger logger = LoggerFactory.getLogger(StudentController.class);
 
-    @PostMapping("/register")
-    public ResponseEntity<Object> registerAdmin(@RequestBody Admin admin)
+    @PostMapping("/add")
+    public ResponseEntity<Object> addStudent(@RequestBody Student student)
     {
         try
         {
-            Admin registeredAdmin = this.adminService.register(admin);
-            return ResponseHandler.generateResponse(HttpStatus.CREATED, Constants.AdminConstants.ADMIN_REGISTERED_SUCCESSFULLY, registeredAdmin);
+            Student registeredStudent= this.studentService.register(student);
+            return ResponseHandler.generateResponse(HttpStatus.CREATED, "Student registered successfully", registeredStudent);
         }
         catch (EmailAlreadyExistsException emailAlreadyExistsException)
         {

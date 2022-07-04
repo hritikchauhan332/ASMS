@@ -1,9 +1,8 @@
 package com.school.management.controller;
 
-import com.school.management.Utils.Exceptions.ResourceAlreadyExistsException;
-import com.school.management.Utils.Response.ResponseHandler;
+import com.school.management.utils.exceptions.ResourceAlreadyExistsException;
+import com.school.management.utils.response.ResponseHandler;
 import com.school.management.model.SClass;
-import com.school.management.service.SClassService;
 import com.school.management.service.interfaces.ISClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,7 +32,7 @@ public class SClassController {
     }
 
     @GetMapping("/{sessionId}/all")
-    ResponseEntity<Object> getClassBySessionId(@PathVariable (value = "sessionId") long sessionId)
+    ResponseEntity<Object> getClassBySessionId(@PathVariable (value = "sessionId") int sessionId)
     {
         try {
             List<SClass> classList = this.sClassService.getClassesBySessionId(sessionId);
