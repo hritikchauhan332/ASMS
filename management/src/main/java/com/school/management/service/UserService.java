@@ -3,6 +3,7 @@ package com.school.management.service;
 import com.school.management.dao.UserRepo;
 import com.school.management.model.person.User;
 import com.school.management.model.person.UserLogin;
+import com.school.management.utils.security.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -25,7 +26,9 @@ public class UserService implements UserDetailsService {
         userLogin.setUserEmail(user.getEmail());
         userLogin.setPassword(user.getPassword());
         userLogin.setEnabled(true);
+        UserRole role = UserRole.getRoleEnum(user.getRole());
         userLogin.setRole(user.getRole());
+        userLogin.setGrantedAuthorities(role.getGrantedAuthorities());
         return userLogin;
     }
 }

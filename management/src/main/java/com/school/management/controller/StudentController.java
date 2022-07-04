@@ -1,5 +1,6 @@
 package com.school.management.controller;
 
+import com.school.management.utils.Constants;
 import com.school.management.utils.exceptions.EmailAlreadyExistsException;
 import com.school.management.utils.response.ResponseHandler;
 import com.school.management.model.person.Student;
@@ -29,7 +30,7 @@ public class StudentController {
         try
         {
             Student registeredStudent= this.studentService.register(student);
-            return ResponseHandler.generateResponse(HttpStatus.CREATED, "Student registered successfully", registeredStudent);
+            return ResponseHandler.generateResponse(HttpStatus.CREATED, Constants.ResponseMessageConstants.SUCCESS, registeredStudent);
         }
         catch (EmailAlreadyExistsException emailAlreadyExistsException)
         {

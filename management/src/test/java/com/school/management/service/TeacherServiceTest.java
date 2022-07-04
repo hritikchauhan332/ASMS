@@ -36,15 +36,15 @@ public class TeacherServiceTest {
         helper = new MockHelper();
     }
 
-    @Test
-    public void getAllTeacherTestShouldReturnTeacherList() {
-        List<Teacher> teachers = helper.getFakeTeachersList();
-        when(teacherRepo.findAllByRole(Role.TEACHER.toString())).thenReturn(teachers);
-
-        List<Teacher> savedTeachers = teacherService.getAll();
-        verify(teacherRepo, atLeast(1)).findAllByRole(anyString());
-        assert savedTeachers.size() == teachers.size();
-    }
+//    @Test
+//    public void getAllTeacherTestShouldReturnTeacherList() {
+//        List<Teacher> teachers = helper.getFakeTeachersList();
+//        when(teacherRepo.findAllByRole(Role.TEACHER.toString())).thenReturn(teachers);
+//
+//        List<Teacher> savedTeachers = teacherService.getAll();
+//        verify(teacherRepo, atLeast(1)).findAllByRole(anyString());
+//        assert savedTeachers.size() == teachers.size();
+//    }
 
     @Test
     public void GivenTeacherDataTeacherShouldBeSavedSuccessfully()

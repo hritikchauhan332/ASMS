@@ -1,5 +1,6 @@
 package com.school.management.configuration;
 
+import com.school.management.utils.Constants.SpringFoxConfigConstants;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.HashSet;
 import java.util.Set;
+
+import static com.school.management.utils.Constants.SpringFoxConfigConstants.*;
 
 @Configuration
 @EnableSwagger2
@@ -39,13 +42,13 @@ public class SpringFoxConfig  implements WebMvcConfigurer {
     private ApiInfo apiInfo() {
         @SuppressWarnings("deprecation")
         ApiInfo apiInfo = new ApiInfo(
-                "ASMS REST API",
-                "All API'S for ASMS application",
-                "API",
-                "Terms of services",
-                "hritikchauhan332@gmail.com",
-                "License of API",
-                "API License URL");
+                TITLE,
+                DESCRIPTION,
+                VERSION,
+                TERMS_OF_SERVICE_URL,
+                CONTACT_NAME,
+                LICENSE,
+                LICENSE_URL);
         return apiInfo;
     }
 

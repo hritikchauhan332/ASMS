@@ -1,10 +1,11 @@
-package com.school.management.configuration;
+package com.school.management.configuration.jwt;
 
+import io.jsonwebtoken.JwtException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import javax.servlet.FilterChain;
@@ -12,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Set;
 
 public class JWTAuthenticationFilter extends OncePerRequestFilter {
     private UserDetailsService userDetailsService;
@@ -25,19 +27,26 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
         String authToken = jwtTokenHelper.getAuthHeaderFromHeader(request);
 
         if(authToken != null)
         {
-            String userName = jwtTokenHelper.getUsernameFromToken(authToken);
+            String userName;
+            try {
+                userName = jwtTokenHelper.getUsernameFromToken(authToken);
+            } catch (JwtException ex) {
+                throw new JwtException(String.format("Token %s cannot be trusted", authToken));
+            }
             if(userName != null)
             {
-                UserDetails userDetails = userDetailsService.loadUserByUsername(userName);
-                if(jwtTokenHelper.validateToken(authToken, userDetails))
+                if(jwtTokenHelper.validateToken(authToken))
                 {
-                    UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                    usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetails(request));
+                    Set<SimpleGrantedAuthority> grantedAuthorities = jwtTokenHelper.getGrantedAuthorities(authToken);
+                    Authentication usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
+                            userName,
+                            null,
+                            grantedAuthorities
+                    );
 
                     SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
                 }

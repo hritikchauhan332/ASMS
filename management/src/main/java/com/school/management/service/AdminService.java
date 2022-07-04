@@ -2,6 +2,7 @@ package com.school.management.service;
 
 import com.school.management.dao.UserRepo;
 import com.school.management.model.person.Admin;
+import com.school.management.model.person.Teacher;
 import com.school.management.service.interfaces.IAdminService;
 import com.school.management.utils.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class AdminService implements IAdminService {
@@ -27,7 +29,7 @@ public class AdminService implements IAdminService {
     }
 
     @Override
-    public List<Admin> getAll() { return null; }
+    public CompletableFuture<List<Teacher>> getAll() { return null; }
 
     @Override
     public void update(int id, Admin person) {throw new UnsupportedOperationException();}

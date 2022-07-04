@@ -1,5 +1,7 @@
 package com.school.management.service;
 
+import com.school.management.model.person.Teacher;
+import com.school.management.utils.Constants;
 import com.school.management.utils.DateTime;
 import com.school.management.utils.exceptions.ResourceNotFoundException;
 import com.school.management.dao.StudentRepo;
@@ -13,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 
 @Service
 public class StudentService implements IStudentService {
@@ -31,7 +34,7 @@ public class StudentService implements IStudentService {
     }
 
     @Override
-    public List<Student> getAll() {
+    public CompletableFuture<List<Teacher>> getAll() {
         return null;
     }
 
@@ -40,7 +43,7 @@ public class StudentService implements IStudentService {
         Optional<User> savedUser = this.studentRepo.findById(id);
 
         if(savedUser.isEmpty())
-            throw new ResourceNotFoundException("Unable to find Student with specified Id");
+            throw new ResourceNotFoundException(Constants.ResponseMessageConstants.RESOURCE_NOT_FOUND);
 
         student.setCreatedAt(savedUser.get().getCreatedAt());
         student.setUpdatedAt(DateTime.getCurrentDateTime());

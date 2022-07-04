@@ -25,4 +25,12 @@ public class ResponseHandler {
         response.put("authToken", jwtToken);
         return new ResponseEntity<>(response, status);
     }
+
+    public static ResponseEntity<Object> generateResponse(HttpStatus status, String message)
+    {
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", status.value());
+        response.put("message", message);
+        return new ResponseEntity<>(response, status);
+    }
 }

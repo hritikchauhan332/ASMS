@@ -29,16 +29,18 @@ public class AdminController {
         try
         {
             Admin registeredAdmin = this.adminService.register(admin);
-            return ResponseHandler.generateResponse(HttpStatus.CREATED, Constants.AdminConstants.ADMIN_REGISTERED_SUCCESSFULLY, registeredAdmin);
+            logger.info(Constants.AdminControllerConstants.ADMIN_REGISTERED_SUCCESSFULLY);
+            return ResponseHandler.generateResponse(HttpStatus.CREATED, Constants.ResponseMessageConstants.SUCCESS, registeredAdmin);
         }
         catch (EmailAlreadyExistsException emailAlreadyExistsException)
         {
-            return ResponseHandler.generateResponse(HttpStatus.MULTI_STATUS, "Email Already Exists", null);
+            logger.error(Constants.ResponseMessageConstants.EMAIL_ALREADY_EXISTS, emailAlreadyExistsException.getMessage());
+            return ResponseHandler.generateResponse(HttpStatus.MULTI_STATUS, Constants.ResponseMessageConstants.EMAIL_ALREADY_EXISTS, null);
         }
         catch (Exception ex)
         {
-            logger.error(ex.getMessage());
-            return ResponseHandler.generateResponse(HttpStatus.MULTI_STATUS, "Email Already Exists", null);
+            logger.error(Constants.ResponseMessageConstants.EMAIL_ALREADY_EXISTS, ex.getMessage());
+            return ResponseHandler.generateResponse(HttpStatus.MULTI_STATUS, Constants.ResponseMessageConstants.EMAIL_ALREADY_EXISTS, null);
         }
     }
 }

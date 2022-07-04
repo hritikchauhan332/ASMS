@@ -1,5 +1,6 @@
 package com.school.management.controller;
 
+import com.school.management.utils.Constants;
 import com.school.management.utils.exceptions.ResourceAlreadyExistsException;
 import com.school.management.utils.response.ResponseHandler;
 import com.school.management.model.SessionYear;
@@ -23,7 +24,7 @@ public class SessionYearController {
     {
         try {
             this.sessionYearService.add(sessionYear);
-            return ResponseHandler.generateResponse(HttpStatus.OK, "Session added successfully", null);
+            return ResponseHandler.generateResponse(HttpStatus.OK, Constants.ResponseMessageConstants.SUCCESS, null);
         } catch (ResourceAlreadyExistsException ex) {
             return ResponseHandler.generateResponse(HttpStatus.CONFLICT, ex.getMessage(), null);
         } catch (Exception ex) {
@@ -36,7 +37,7 @@ public class SessionYearController {
     {
         try {
             List<SessionYear> sessionYearList = this.sessionYearService.getAllSessions();
-            return ResponseHandler.generateResponse(HttpStatus.OK, "success", sessionYearList);
+            return ResponseHandler.generateResponse(HttpStatus.OK, Constants.ResponseMessageConstants.SUCCESS, sessionYearList);
         } catch (Exception ex) {
             return ResponseHandler.generateResponse(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage(), null);
         }
