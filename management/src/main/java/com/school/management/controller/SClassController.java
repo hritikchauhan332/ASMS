@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.MessageFormat;
@@ -25,6 +26,7 @@ public class SClassController {
     Logger logger = LoggerFactory.getLogger(SClassController.class);
 
     @PostMapping("/add")
+    @PreAuthorize("hasAuthority('sclass:add')")
     ResponseEntity<Object> addSCLass(@RequestBody SClass sClass)
     {
         try {
@@ -41,6 +43,7 @@ public class SClassController {
     }
 
     @GetMapping("/{sessionId}/all")
+    @PreAuthorize("hasAuthority('sclass:read')")
     ResponseEntity<Object> getClassBySessionId(@PathVariable (value = "sessionId") int sessionId)
     {
         try {
